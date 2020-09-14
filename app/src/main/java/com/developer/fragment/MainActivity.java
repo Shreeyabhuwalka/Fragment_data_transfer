@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BlankFragment1.FragmentAListener,BlankFragment2.FragmentBListener{
 
     BlankFragment1 fragmentA;
     BlankFragment2 fragmentB;
@@ -21,5 +21,15 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
 
 
+    }
+
+    @Override
+    public void onInputASent(CharSequence input) {
+        fragmentB.updateChar(input);
+    }
+
+    @Override
+    public void onInputBSent(CharSequence input) {
+        fragmentA.updateChar(input);
     }
 }
